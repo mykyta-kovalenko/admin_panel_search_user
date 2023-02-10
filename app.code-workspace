@@ -1,0 +1,17 @@
+{
+    "folders": [
+        {
+            "name": "Admin Panel User Search",
+            "path": "."
+        }
+    ],
+    "launch": {
+        "configurations": [
+            {
+                "name": "user_search",
+                "request": "launch",
+                "type": "dart",
+            }
+        ]
+    }
+}
