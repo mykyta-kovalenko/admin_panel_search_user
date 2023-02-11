@@ -12,6 +12,9 @@ import 'package:flutter/widgets.dart';
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// File path: assets/images/bitmap.png
+  AssetGenImage get bitmap => const AssetGenImage('assets/images/bitmap.png');
+
   /// File path: assets/images/joanneRobinson.png
   AssetGenImage get joanneRobinson =>
       const AssetGenImage('assets/images/joanneRobinson.png');
@@ -33,7 +36,7 @@ class $AssetsImagesGen {
 
   /// List of all assets
   List<AssetGenImage> get values =>
-      [joanneRobinson, joeMike, johnJameson, johnJohnson, josephSmith];
+      [bitmap, joanneRobinson, joeMike, johnJameson, johnJohnson, josephSmith];
 }
 
 class $AssetsSvgGen {
@@ -42,14 +45,11 @@ class $AssetsSvgGen {
   /// File path: assets/svg/backButton.svg
   String get backButton => 'assets/svg/backButton.svg';
 
-  /// File path: assets/svg/bitmap.svg
-  String get bitmap => 'assets/svg/bitmap.svg';
-
   /// File path: assets/svg/pureMatchLogo.svg
   String get pureMatchLogo => 'assets/svg/pureMatchLogo.svg';
 
   /// List of all assets
-  List<String> get values => [backButton, bitmap, pureMatchLogo];
+  List<String> get values => [backButton, pureMatchLogo];
 }
 
 class Assets {

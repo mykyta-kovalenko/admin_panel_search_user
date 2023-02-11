@@ -37,8 +37,7 @@ class SearchCubit extends BaseCubit<SearchState> {
     performSafeAction(() async {
       final users = userService.getUsers();
       final filteredUsers = users.where((user) {
-        return user.firstName.toLowerCase().contains(query.toLowerCase()) ||
-            user.lastName.toLowerCase().contains(query.toLowerCase());
+        return user.fullName.toLowerCase().contains(query.toLowerCase());
       }).toList();
 
       emit(state.copyWith(

@@ -110,12 +110,14 @@ class _SearchPageState extends State<SearchPage> {
                   _getTextCanceler(_buildCancelTextButton()),
                 ],
               ),
+              const SizedBox(height: 13),
               Expanded(
                 child: SearchResultView(
                   onPressedUser: (_) {},
                   state: state,
+                  inputNotifier: _inputNotifier,
                 ),
-              )
+              ),
             ],
           );
         },

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'themes/dark/dark_theme.dart';
 import 'themes/main_theme.dart';
 import 'ui/pages/search_page.dart';
+import 'utils/no_glow.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -17,6 +18,12 @@ class App extends StatelessWidget {
             home: SearchPage.create(),
             debugShowCheckedModeBanner: false,
             theme: MainTheme.of(context).themeData,
+            builder: (_, child) {
+              return ScrollConfiguration(
+                behavior: NoGlow(),
+                child: child ?? SearchPage.create(),
+              );
+            },
           );
         },
       ),
