@@ -4,16 +4,14 @@ import 'package:flutter/material.dart';
 @immutable
 class User extends Equatable {
   final String id;
-  final String firstName;
-  final String lastName;
+  final String fullName;
   final String photo;
   final String registrationDate;
   final bool isOnline;
 
   const User({
     required this.id,
-    required this.firstName,
-    required this.lastName,
+    required this.fullName,
     required this.photo,
     required this.registrationDate,
     required this.isOnline,
@@ -21,16 +19,14 @@ class User extends Equatable {
 
   User copyWith({
     String? id,
-    String? firstName,
-    String? lastName,
+    String? fullName,
     String? photo,
     String? registrationDate,
     bool? isOnline,
   }) {
     return User(
       id: id ?? this.id,
-      firstName: firstName ?? this.firstName,
-      lastName: lastName ?? this.lastName,
+      fullName: fullName ?? this.fullName,
       photo: photo ?? this.photo,
       registrationDate: registrationDate ?? this.registrationDate,
       isOnline: isOnline ?? this.isOnline,
@@ -41,8 +37,7 @@ class User extends Equatable {
   List<Object?> get props {
     return [
       id,
-      firstName,
-      lastName,
+      fullName,
       photo,
       registrationDate,
       isOnline,
