@@ -4,6 +4,11 @@ part 'theme/main_color_theme_data.dart';
 part 'theme/main_text_theme_data.dart';
 part 'theme/main_theme_data.dart';
 
+/// MainTheme is a Flutter widget that acts as an inheritable widget
+///  to provide a MainThemeData object to its descendants.
+/// This MainThemeData object contains information about the color theme
+/// and text theme of the app. This information is used to style
+///  various parts of the user interface.
 class MainTheme extends InheritedWidget {
   const MainTheme({
     Key? key,

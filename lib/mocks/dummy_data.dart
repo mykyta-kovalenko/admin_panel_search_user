@@ -2,44 +2,45 @@ import 'package:injectable/injectable.dart';
 
 import '../gen/assets.gen.dart';
 import '../models/user.dart';
+import '../resources/app_strings.dart';
 
+/// Hard-coded users data.
 @injectable
 class DummyData {
   List<User> users = [
-    //TODO: Move all strings to resources.
     User(
       id: '0',
-      fullName: 'Joanne Robinson',
+      fullName: AppStrings.joanneRobinson,
       photo: Assets.images.joanneRobinson.path,
-      registrationDate: '11/25/2019',
+      registrationDate: AppStrings.registrationDate,
       isOnline: true,
     ),
     User(
       id: '1',
-      fullName: 'Joe Mike',
+      fullName: AppStrings.joeMike,
       photo: Assets.images.joeMike.path,
-      registrationDate: '11/25/2019',
+      registrationDate: AppStrings.registrationDate,
       isOnline: true,
     ),
     User(
       id: '2',
-      fullName: 'John Jameson',
+      fullName: AppStrings.johnJameson,
       photo: Assets.images.johnJameson.path,
-      registrationDate: '11/25/2019',
+      registrationDate: AppStrings.registrationDate,
       isOnline: false,
     ),
     User(
       id: '3',
-      fullName: 'John Johnson',
+      fullName: AppStrings.johnJohnson,
       photo: Assets.images.johnJohnson.path,
-      registrationDate: '11/25/2019',
+      registrationDate: AppStrings.registrationDate,
       isOnline: true,
     ),
     User(
       id: '4',
-      fullName: 'Joseph Smith',
+      fullName: AppStrings.josephSmith,
       photo: Assets.images.josephSmith.path,
-      registrationDate: '11/25/2019',
+      registrationDate: AppStrings.registrationDate,
       isOnline: true,
     ),
   ];

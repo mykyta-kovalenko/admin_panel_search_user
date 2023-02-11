@@ -6,6 +6,10 @@ import '../../resources/app_strings.dart';
 import '../../themes/main_theme.dart';
 import 'rich_text_search.dart';
 
+/// This widget is used to display information about a user.
+/// The class provides a compact and visually appealing
+/// representation of a user's information, including their photo,
+/// full name, and registration date.
 class UserTile extends StatelessWidget {
   final User user;
   final VoidCallback onPressed;

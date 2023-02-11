@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+/// The class serves as a base class for all BLoC classes in the project
 abstract class BaseCubit<TState> extends Cubit<TState> {
   BaseCubit(TState initialState) : super(initialState);
 

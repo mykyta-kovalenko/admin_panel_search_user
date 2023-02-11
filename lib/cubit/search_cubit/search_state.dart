@@ -6,6 +6,8 @@ enum SearchStatus {
   error,
 }
 
+/// This class is a state object that is used to store the status, users,
+/// filtered users, and error message of the search process.
 class SearchState extends Equatable {
   final SearchStatus status;
   final List<User> users;

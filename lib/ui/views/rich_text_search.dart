@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../themes/main_theme.dart';
 
+/// Class for creating a RichText widget that
+/// highlights a search term within a given text.
 class RichTextSearch extends StatefulWidget {
   final String text;
   final ValueNotifier<String> inputNotifier;

@@ -1,6 +1,9 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 
+/// A class that represents a user entity.
+/// It holds information such as the user's unique
+/// identifier, full name, photo, registration date, and online status.
 @immutable
 class User extends Equatable {
   final String id;

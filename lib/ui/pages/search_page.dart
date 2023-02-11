@@ -10,12 +10,18 @@ import '../../resources/app_strings.dart';
 import '../../themes/main_theme.dart';
 import '../views/search_result_view.dart';
 
+/// The SearchPage class is a StatefulWidget that provides a search
+/// functionality to its users. The user can search for other users
+/// by entering the name of the user they are looking for.
+/// The page consists of an AppBar at the top and a body which contains
+/// the search bar and the search result.
+
 enum SearchTabFields { search }
 
 class SearchPage extends StatefulWidget {
   static Widget create() {
     return BlocProvider(
-      create: (context) => locator.get<SearchCubit>()..init(),
+      create: (context) => locator.get<SearchCubit>(),
       child: const SearchPage(),
     );
   }
