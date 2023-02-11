@@ -150,6 +150,7 @@ class _SearchPageState extends State<SearchPage> {
         controller: _searchBarController,
         name: SearchTabFields.search.name,
         textInputAction: TextInputAction.go,
+        key: Key(SearchTabFields.search.name),
         textCapitalization: TextCapitalization.words,
         decoration: InputDecoration(
           hintText: AppStrings.searchForAUser,
