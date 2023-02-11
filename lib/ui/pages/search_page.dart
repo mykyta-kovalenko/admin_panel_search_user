@@ -1,14 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:flutter_svg/svg.dart';
 
+import '../../cubit/search_cubit/search_cubit.dart';
+import '../../di/di.dart';
 import '../../gen/assets.gen.dart';
 import '../../resources/app_strings.dart';
 import '../../themes/main_theme.dart';
+import '../views/search_result_view.dart';
 
 enum SearchTabFields { search }
 
 class SearchPage extends StatefulWidget {
+  static Widget create() {
+    return BlocProvider(
+      create: (context) => locator.get<SearchCubit>()..init(),
+      child: const SearchPage(),
+    );
+  }
+
   const SearchPage({super.key});
 
   @override
@@ -19,6 +30,9 @@ class _SearchPageState extends State<SearchPage> {
   late ValueNotifier<String> _inputNotifier;
   late TextEditingController _searchBarController;
 
+  DateTime _lastInputTimeStamp = DateTime.now();
+
+  SearchCubit get _searchCubit => context.read<SearchCubit>();
   MainTextThemeData get _textTheme => MainTheme.text(context);
   MainColorThemeData get _colorTheme => MainTheme.color(context);
 
@@ -29,6 +43,7 @@ class _SearchPageState extends State<SearchPage> {
     _inputNotifier = ValueNotifier<String>(_searchBarController.text.trim());
     _searchBarController.addListener(() {
       _inputNotifier.value = _searchBarController.text.trim();
+      _tryToGetUsers(_inputNotifier.value);
     });
   }
 
@@ -37,6 +52,16 @@ class _SearchPageState extends State<SearchPage> {
     _inputNotifier.dispose();
     _searchBarController.dispose();
     super.dispose();
+  }
+
+  Future<void> _tryToGetUsers(String query) async {
+    final timestamp = _lastInputTimeStamp = DateTime.now();
+
+    await Future.delayed(const Duration(milliseconds: 700), () {
+      if (timestamp != _lastInputTimeStamp) return;
+
+      _searchCubit.searchUsers(query);
+    });
   }
 
   ValueListenableBuilder<String> _getTextCanceler(Widget cancel) {
@@ -74,23 +99,33 @@ class _SearchPageState extends State<SearchPage> {
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
-      child: Column(
-        children: [
-          const SizedBox(height: 8),
-          Row(
+      child: BlocBuilder<SearchCubit, SearchState>(
+        builder: (context, state) {
+          return Column(
             children: [
-              Expanded(child: _buildSearchField()),
-              _getTextCanceler(_buildCancelTextButton()),
+              const SizedBox(height: 8),
+              Row(
+                children: [
+                  Expanded(child: _buildSearchField()),
+                  _getTextCanceler(_buildCancelTextButton()),
+                ],
+              ),
+              Expanded(
+                child: SearchResultView(
+                  onPressedUser: (_) {},
+                  state: state,
+                ),
+              )
             ],
-          ),
-        ],
+          );
+        },
       ),
     );
   }
 
   Widget _buildIcon(String iconPath) {
     return GestureDetector(
-      /// Inactive due to task purproses
+      // Inactive due to task purproses
       onTap: () {},
       child: SizedBox(
         height: 37,

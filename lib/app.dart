@@ -14,7 +14,7 @@ class App extends StatelessWidget {
       child: Builder(
         builder: (context) {
           return MaterialApp(
-            home: const SearchPage(),
+            home: SearchPage.create(),
             debugShowCheckedModeBanner: false,
             theme: MainTheme.of(context).themeData,
           );
