@@ -7,6 +7,7 @@ import 'user_tile.dart';
 
 const _maxCapacity = 20;
 
+/// Widget that displays the search results.
 class SearchResultView extends StatelessWidget {
   final SearchState state;
   final ValueSetter<User> onPressedUser;
